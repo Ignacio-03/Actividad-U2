@@ -1,0 +1,34 @@
+#ACTIVIDAD 2.2: Calcular el precio de una entrada
+
+
+edad = int(input("Introduza su edad: "))
+if edad < 0:
+    print("La edad no puede incluir numeros negativos")
+else:
+    dia = input("Intoduzca el dia se la semana:").strip.lower()
+    peli_3D = input("Es una sesion 3D?:").strip.lower()
+    es_3d = peli_3D in ["sí", "si", "s", "true"]
+
+    descuento_miercoles = 0
+    suplemento_3d = 0
+
+    match edad:
+        case _ if edad < 12:
+                precio_base = 5
+        case _ if edad >= 65:
+                precio_base = 6
+        case _:
+                precio_base = 8
+    if dia in ["miercoles", "miercoles"]:
+          descuento_miercoles = 1
+    if peli_3D:
+        suplemento_3d = 2
+
+    precio_final = precio_base - descuento_miercoles + suplemento_3d
+
+    print(f"Precio base según edad ({edad} años): {precio_base} €")
+    if descuento_miercoles > 0:
+       print(f"Descuento de miércoles aplicado: -{descuento_miercoles} €")
+    if suplemento_3d > 0:
+            print(f"Suplemento sesión 3D: +{suplemento_3d} €")
+    print(f"Precio final a pagar: {precio_final} €")
